@@ -1,2 +1,4 @@
-# core-loong-musl
-core-loong-musl 64bit
+# core-loong-musl 64bit
+SAUX LoongArch musl (libc) - core repo
+
+

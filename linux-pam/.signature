@@ -1,0 +1,11 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy8dCYhhIorG7Y8YNYQzJKAtM50HH4SX6FLkZ+ATuDzScGJChORitlizdG6gDMkYjXZTXz0exvVl5zIrhM/6XPQs=
+SHA256 (Pkgfile) = 5bd2bde10a4c7a7df508ec7453288a65a14a7d41a563abb6411325ab9373d7b0
+SHA256 (.footprint) = 16a08d9b63e11f4161406aae84b94b762bcefaf25917e3533fb48d6b17f6fb65
+SHA256 (Linux-PAM-1.6.1.tar.xz) = f8923c740159052d719dbfc2a2f81942d68dd34fcaf61c706a02c9b80feeef8e
+SHA256 (Linux-PAM-1.6.0-bindtextdomain.patch) = 3e2be44d7f224172fdcd2d4df067b3a1cfa2cc660ebf8824941682373c64b1ca
+SHA256 (common-account) = 63b6d073e0a05d45260912fd900e27ccac3304ca23cd05df68ce88da34a5d832
+SHA256 (common-auth) = c8f2c471572147fafddfe2062b763d360bbb6d21aa8017c725785f96667e9b02
+SHA256 (common-password) = 999c19d97ab2a8408103304faa12252d11ab03d492880d78a0bd1a1335659258
+SHA256 (common-session) = 31dbfe667e4e511b8a464cbb699bbba7a9339ad9f3312dfc24053f24150c834e
+SHA256 (other) = 543e9b4493e8d60aac66d5e6dbc9955b53efa421e19400b47f243a42d67246f1

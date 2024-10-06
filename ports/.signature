@@ -1,0 +1,11 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy5ZVinNDUE8OOuRtsuk36n3pn52Wzmy6X9yBRG6inhZgmVXuCeLgHNhLc7gmnNhGyEbg4QPswl8FhAoCPIlJuwM=
+SHA256 (Pkgfile) = a4985f4757a155f3309fdf8ff52d810c344d70a65da71ed326e9cafc4be2fd9c
+SHA256 (.footprint) = 9f7a13e8429c42a35b305280d5544bcd1fcbf27ff0a47e69309c4cc8f168b4f8
+SHA256 (ports-1.6.tar.gz) = 8b2ba48e7440f4a71fa1c9c480a1212ce87c623e1d33121eb660829ba294ca94
+SHA256 (core-loong-musl.httpup) = d10f221e21c02325de0df48a58114759e92656aa9393e1e3af88803252a9d92b
+SHA256 (core-loong-musl.pub) = c446ab1c52a8fd22a641956febbac270c5d0d773a4a37692a9074c66c8bc842f
+SHA256 (opt-loong-musl.httpup) = 6592a41666e3759b5622740320a58cd06f267ee0e477ddc504d87733de267423
+SHA256 (opt-loong-musl.pub) = 8a44d1fc6d787a1717f7c846f575648cb00600a43e8e1ea15dcfc550519e8030
+SHA256 (wayland-loong-musl.httpup) = def0c28b0f8c74b86344bd660344e2d95c8a3f3ccf1ea83bbc11b2ad0ec2238d
+SHA256 (wayland-loong-musl.pub) = 4fff5b6d3270706cee75190c9d28cfc0ce90a88e64d057132249de0a47be93e5

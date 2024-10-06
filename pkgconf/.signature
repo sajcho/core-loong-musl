@@ -1,0 +1,6 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy+uONyyhlDJstYSTW9T1cs5oSuzNz4WketcH4ogT6jppcy4gcmE7MT6wp48bjGygtY7U4pvv0beGh0cTb1CmWwY=
+SHA256 (Pkgfile) = 05bbdda0dd976f904dcee60d03d75f8abc3cb155394e276ffb733f5adf74b875
+SHA256 (.footprint) = ae5b94217db2da4a27338e4823261d2d30c2830f6b0d551558c7a5f72607d0b2
+SHA256 (pkgconf-2.2.0.tar.xz) = b06ff63a83536aa8c2f6422fa80ad45e4833f590266feb14eaddfe1d4c853c69
+SHA256 (loongarch64-unknown-linux-musl.personality) = 552e18b9db73f4bf4b544dcc1129dfc944acb8b524ff67829ac327dbe46a1716

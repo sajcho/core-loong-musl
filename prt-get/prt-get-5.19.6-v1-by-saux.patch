@@ -1,0 +1,107 @@
+From eb17b5d68d538f221146d2837dc48ca18e7cae1a Mon Sep 17 00:00:00 2001
+From: sajcho <saux.aarch64@gmail.com>
+Date: Tue, 20 Aug 2024 17:57:54 +0200
+Subject: [PATCH] modified by Saux
+
+---
+ Makefile.in                |  8 +++++++-
+ src/installtransaction.cpp | 17 ++++++++++++++++-
+ 2 files changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index bce64e7..405e9f1 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -491,6 +491,10 @@ dist-xz: distdir
+ 	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz
+ 	$(am__post_remove_distdir)
+ 
++dist-zstd: distdir
++	tardir=$(distdir) && $(am__tar) | zstd -c  >$(distdir).tar.zst
++	$(am__post_remove_distdir)
++
+ dist-tarZ: distdir
+ 	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z
+ 	$(am__post_remove_distdir)
+@@ -521,6 +525,8 @@ distcheck: dist
+ 	  lzip -dc $(distdir).tar.lz | $(am__untar) ;;\
+ 	*.tar.xz*) \
+ 	  xz -dc $(distdir).tar.xz | $(am__untar) ;;\
++	*.tar.zst*) \
++	  zstd -dc $(distdir).tar.zst | $(am__untar) ;;\
+ 	*.tar.Z*) \
+ 	  uncompress -c $(distdir).tar.Z | $(am__untar) ;;\
+ 	*.shar.gz*) \
+@@ -704,7 +710,7 @@ uninstall-am:
+ .PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
+ 	all all-am am--refresh check check-am clean clean-cscope \
+ 	clean-generic cscope cscopelist cscopelist-recursive ctags \
+-	ctags-recursive dist dist-all dist-bzip2 dist-gzip dist-lzip \
++	ctags-recursive dist dist-all dist-bzip2 dist-gzip dist-lzip dist-zstd \
+ 	dist-shar dist-tarZ dist-xz dist-zip distcheck distclean \
+ 	distclean-generic distclean-hdr distclean-tags distcleancheck \
+ 	distdir distuninstallcheck dvi dvi-am html html-am info \
+diff --git a/src/installtransaction.cpp b/src/installtransaction.cpp
+index 59834f1..41f2a51 100644
+--- a/src/installtransaction.cpp
++++ b/src/installtransaction.cpp
+@@ -34,6 +34,21 @@ using namespace std;
+ #include "lockfile.h"
+ #endif
+ 
++#ifdef linux
++#ifdef __x86_64__
++#define PKG_EXT ".x86_64.pkg.tar."
++#endif
++#ifdef __aarch64__
++#define PKG_EXT ".aarch64.pkg.tar."
++#endif
++#ifdef __riscv
++#define PKG_EXT ".riscv64.pkg.tar."
++#endif
++#else
++#error "unsupported architecture"
++#endif
++
++
+ using namespace StringHelper;
+ 
+ 
+@@ -371,7 +386,7 @@ InstallTransaction::installPackage( const Package* package,
+             args +=
+                 package->name()    + "#" +
+                 package->version() + "-" +
+-                package->release() + ".pkg.tar." + getPkgmkCompressionMode();
++                package->release() + PKG_EXT + getPkgmkCompressionMode();
+ 
+ 
+             // - inform the user about what's happening
+-- 
+2.46.0
+
+From 7bbdb6566ab8c56de2983fc4e68d85581d5e36f5 Mon Sep 17 00:00:00 2001
+From: sajcho <saux.aarch64@gmail.com>
+Date: Tue, 20 Aug 2024 18:02:23 +0200
+Subject: [PATCH] installtransaction.cpp: add support for loongarch64
+
+---
+ src/installtransaction.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/installtransaction.cpp b/src/installtransaction.cpp
+index 41f2a51..cf52212 100644
+--- a/src/installtransaction.cpp
++++ b/src/installtransaction.cpp
+@@ -44,6 +44,9 @@ using namespace std;
+ #ifdef __riscv
+ #define PKG_EXT ".riscv64.pkg.tar."
+ #endif
++#ifdef __loongarch__
++#define PKG_EXT ".loongarch64.pkg.tar."
++#endif
+ #else
+ #error "unsupported architecture"
+ #endif
+-- 
+2.46.0
+

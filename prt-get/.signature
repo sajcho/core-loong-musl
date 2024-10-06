@@ -1,0 +1,10 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy2BvZa1FLwFzy4ckMdqDAag1cvtiEr1eE9GDOpePZId/rSPerNTcmC2zbyoV/b+km6kTtUfkIG1sDqBa0OZJ7g0=
+SHA256 (Pkgfile) = 7e18b351ef123a3317cca78aad02f1380b707cb0345d659215db684c54575b8f
+SHA256 (.footprint) = 26802764ae3ae1e1a73ea56c859b3415e250a72ea444af410381df8c8f5d3ac8
+SHA256 (prt-get-5.19.6.tar.xz) = 6ea89df308e19a6239f260c91036805cd2063d0cd24a7427235849634dd49f0d
+SHA256 (prt-get-5.19.6-v1-by-saux.patch) = a4d7689bfabb4cdad929e181889c91b22c19798521df09812c50d4c588aa16c9
+SHA256 (prt-get.conf-aarch64) = d858611844ba3f402558bff6497efb1e68fddff3ac0e2b2124bfe3ace64100cb
+SHA256 (prt-get.conf-loongarch64) = 5c69332105fa0ea0a3244ea6c757c60b647c2a3c4bc2f43aee976f1c89e40774
+SHA256 (prt-get.conf-riscv64) = b3dfea64567099feb9a742b6e13e5d168d96f64c2de759d922b6a5e41a6dbc49
+SHA256 (prt-get.conf-x86_64) = 1afcddce8a6a7b0faa31aeed5eb936db16ed3c16daf8de95ff106216b0803073

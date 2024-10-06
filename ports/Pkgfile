@@ -1,0 +1,26 @@
+# Description:	CRUX ports system tools
+# URL:		http://crux.nu
+# Maintainer:	sajcho, saux dot aarch64 at gmail dot com
+
+name=ports
+version=1.6
+release=1
+
+source=(http://crux.nu/files/tools/${name}/${name}-${version}.tar.gz \
+	core-loong-musl.httpup \
+	core-loong-musl.pub \
+	opt-loong-musl.httpup \
+	opt-loong-musl.pub \
+	wayland-loong-musl.httpup \
+	wayland-loong-musl.pub)
+
+build() {
+	cd ${name}-${version}
+
+	make V=1
+
+	make DESTDIR=$PKG MANDIR=/usr/share/man install
+
+	install -m 0644 $SRC/*.httpup $PKG/etc/ports/
+	install -m 0644 $SRC/*.pub $PKG/etc/ports/
+}

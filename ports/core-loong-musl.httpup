@@ -1,0 +1,6 @@
+# core-loong-musl ports collection
+#
+# https://github.com/sajcho/core-loong-musl
+
+ROOT_DIR=/usr/ports/core-loong-musl
+URL=https://raw.githubusercontent.com/sajcho/core-loong-musl/main

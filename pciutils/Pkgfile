@@ -1,0 +1,39 @@
+# Description:	Library and utilities to access the PCI bus configuration registers
+# URL:		http://mj.ucw.cz/pciutils.shtml
+# Maintainer:	sajcho, saux dot aarch64 at gmail dot com
+# Depends on:	eudev
+
+name=pciutils
+version=3.13.0
+release=1
+source=(https://www.kernel.org/pub/software/utils/pciutils/${name}-${version}.tar.xz \
+	basename.patch)
+
+build() {
+	cd ${name}-${version}
+
+	patch -p1 -i $SRC/basename.patch
+
+	# Prevent the installation of the pci.ids file to avoid a conflict with the hwdata port:
+	sed -r '/INSTALL/{/PCI_IDS|update-pciids /d; s/update-pciids.8//}' \
+		-i Makefile
+
+	make V=1 -j1 \
+		PREFIX=/usr \
+		SHAREDIR=/usr/share/hwdata \
+		SHARED=yes \
+		OPT="${CFLAGS}" \
+		ZLIB=no
+
+	make clean
+
+	make V=1 -j1 \
+		PREFIX=/usr \
+		SHAREDIR=/usr/share/hwdata \
+		SHARED=yes \
+		OPT="${CFLAGS}" \
+		ZLIB=no \
+		DESTDIR=$PKG install install-lib
+
+	chmod  0755 $PKG/usr/lib/libpci.so
+}

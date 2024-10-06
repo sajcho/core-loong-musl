@@ -1,0 +1,6 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHywvDfUbxsnSZgHTyxkwnx9iKL0NSrb4onPkR+cRpijW4DkGmHNvh/VRIBab2LHEXAi4uJSC57yOaLDXwHmeLogU=
+SHA256 (Pkgfile) = b194453271e40047bbb6f48cc04601a8b7e312988abd9a960e19c8a1b03c9c1d
+SHA256 (.footprint) = 8c0e3f4f33289d55e52d7963c89238dc434ef553c6a8c5c853207c9558dbd19c
+SHA256 (pciutils-3.13.0.tar.xz) = 77f11f78298502634d1af50308f15a5788629f6cf45cba376f5009aea4cb4926
+SHA256 (basename.patch) = 93ddf0b92a999d883a95e13735ddceeb98bf5493588d1624d483dbe48b6578dc

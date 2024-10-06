@@ -1,0 +1,99 @@
+# Description:	the musl c library (libc) implementation
+# URL:		https://musl.libc.org/
+# Maintainer:	sajcho, saux dot aarch64 at gmail dot com
+
+name=musl
+version=1.2.5
+release=1
+source=(https://musl.libc.org/releases/${name}-${version}.tar.gz \
+	__stack_chk_fail_local.c \
+	getconf.c \
+	getent.c \
+	iconv.c \
+	handle-aux-at_base.patch \
+	ldso-fix-non-functional-fix-to-early-dynamic-PAGE_SI.patch \
+	loongarch64-Add-lsx-and-lasx-vector-structure-defini.patch \
+	loongarch64-add-TLSDESC-support.patch \
+	loongarch64-add-fpu-and-simd-context-to-signal.h.patch)
+
+build() {
+	cd ${name}-${version}
+
+	echo "${version} (build by SAUX LoongArch64 musl)" > VERSION
+
+	patch -p1 -i $SRC/handle-aux-at_base.patch
+	patch -p1 -i $SRC/ldso-fix-non-functional-fix-to-early-dynamic-PAGE_SI.patch
+	patch -p1 -i $SRC/loongarch64-Add-lsx-and-lasx-vector-structure-defini.patch
+	patch -p1 -i $SRC/loongarch64-add-TLSDESC-support.patch
+	patch -p1 -i $SRC/loongarch64-add-fpu-and-simd-context-to-signal.h.patch
+
+	export CFLAGS="${CFLAGS/ -flto=auto -ffat-lto-objects/}"
+	export CXXFLAGS="${CXXFLAGS/ -flto=auto -ffat-lto-objects/}"
+
+	./configure \
+		--build=$CHOST \
+		--host=$CHOST \
+		--prefix=/usr \
+		--sysconfdir=/etc
+
+	make V=1
+
+	make prefix=/usr DESTDIR=$PKG install-headers
+
+	make DESTDIR=$PKG install
+
+	# create libssp_nonshared.a
+	#/usr/bin/cc $CFLAGS -fpie -c $SRC/__stack_chk_fail_local.c \
+	#	-o __stack_chk_fail_local.o
+	#/usr/bin/ar r libssp_nonshared.a __stack_chk_fail_local.o
+	#install -D -m 0644 libssp_nonshared.a -t $PKG/usr/lib
+
+	# create getconf, getent, iconv
+	local i
+	for i in getconf getent iconv ; do
+		/usr/bin/cc $CFLAGS $SRC/$i.c -o $i
+	done
+
+	install -D -m 0755 ./{getconf,getent,iconv} -t $PKG/usr/bin
+
+	# create ldd
+        cat >>$PKG/usr/bin/ldd <<-EOF
+#!/bin/sh
+exec /usr/lib/libc.so --list "\$@"
+EOF
+	chmod 0755 $PKG/usr/bin/ldd
+
+	# create file for the dynamic linker path
+	install -d $PKG/etc
+	cat >>$PKG/etc/ld-musl-loongarch64.path <<-EOF
+#
+# If you want to add your library in a non-standard path, add your own path.
+#
+/lib
+/usr/lib
+/usr/lib/gcc/loongarch64-unknown-linux-musl/14.2.0
+EOF
+	chmod 0644 $PKG/etc/ld-musl-loongarch64.path
+
+	# create ldconfig file
+	install -d $PKG/sbin
+	cat >>$PKG/sbin/ldconfig <<-EOF
+#!/bin/sh
+/bin/true
+EOF
+	chmod 0755 $PKG/sbin/ldconfig
+
+	install -d $PKG/etc/ld.so.conf.d
+	echo "/usr/lib/gcc/loongarch64-unknown-linux-musl/14.2.0" > \
+		$PKG/etc/ld.so.conf.d/05gcc-loongarch64-unknown-linux-musl.conf
+
+	cat >>$PKG/etc/ld.so.conf <<-EOF
+#
+#
+#
+include /etc/ld.so.conf.d/*.conf
+/lib
+/usr/lib
+EOF
+	chmod 0644 $PKG/etc/ld.so.conf
+}

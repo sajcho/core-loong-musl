@@ -1,0 +1,7 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy4Ag+AdklW53XenaON5BWjFjiFkLUU52rFlEjS4NSv/+G25OskZ7hT8RSHjOhV80/oRpHgt0NYZdZMANwJzU5wI=
+SHA256 (Pkgfile) = e3fa040df95b47e03df7462d64dde29a80d0d13aeca5de2e42f0d42f60007322
+SHA256 (.footprint) = 6362b9ff82a8e0a95e39cb4b7e7154da1b716f1f3dcb21dea58d1a25dd9e7419
+SHA256 (sharutils-4.15.2.tar.xz) = 2b05cff7de5d7b646dc1669bc36c35fdac02ac6ae4b6c19cb3340d87ec553a9a
+SHA256 (format-security.patch) = d43e702c03403e5a267eba2bf088f1bf6022a1eb96637c02e5aecaca7e10e0b9
+SHA256 (gcc-10.patch) = 5f4ca4b0a5265c2a33317967196dc08640c43649c9b72c1bec4303786fb1f20e

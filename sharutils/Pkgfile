@@ -1,0 +1,31 @@
+# Description:	GNU shar (encoding/decoding) utilities
+# URL:		http://www.gnu.org/software/sharutils/sharutils.html
+# Maintainer:	sajcho, saux dot aarch64 at gmail dot com
+
+name=sharutils
+version=4.15.2
+release=2
+source=(https://ftpmirror.gnu.org/gnu/${name}/${name}-${version}.tar.xz \
+	format-security.patch \
+	gcc-10.patch)
+
+build(){
+	cd ${name}-${version}
+
+	patch -p1 -i $SRC/format-security.patch
+	patch -p1 -i $SRC/gcc-10.patch
+
+	CFLAGS+=" -fcommon -fpermissive"
+
+	./configure \
+		--build=$CHOST \
+		--host=$CHOST \
+		--prefix=/usr
+
+	make V=1
+
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/lib
+	rm -r $PKG/usr/share/{info,locale}
+}

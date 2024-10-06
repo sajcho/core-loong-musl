@@ -1,0 +1,6 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy86Njft0vYWVcxqoLPAHz++SywYeTZtAP6+lxrzLZ2UJ3EBcSK7IP6YXkvJ9VeX9LwdXahGSgwWbBLBI9T7zgQ0=
+SHA256 (Pkgfile) = 5de8332079338bef17d854b9c9eb7058c082f5bff20fe63f3705a4cf350167a8
+SHA256 (.footprint) = 7254b9c6417527154751eece07f12711fa68773b4d8cad5e659e552f6adf39bc
+SHA256 (signify-32.tar.gz) = 48cfd7bfe55be01909b37e78045f240b950ea51c954bab205bcdcddc0492dca4
+SHA256 (gcc14.patch) = 040675e0422411b5f9c2e0ce1bf90e9154a3604f8e0ceeabf630fbd03cdce71b

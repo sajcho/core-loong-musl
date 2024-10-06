@@ -1,0 +1,10 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy2JMvkH5hQGHehpxeOlhFKBGAEkHc5Rp4QZVhECLh4Zfv+fXk94ssqdoRzq8w6ohHYJfpBXpGyeOevFKqnPIaAs=
+SHA256 (Pkgfile) = fcd1bb691aa7042e84340ecd206308142a136dac5453105d52e043fa2ae9dfd5
+SHA256 (.footprint) = bb85a4691ba96f1cbc82c51ddc25cbebe7712957565a2947d6e4f46c5a809305
+SHA256 (gcc-14.2.0.tar.xz) = a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9
+SHA256 (50_all_cpu_indicator.patch) = f5663d3ad7f6ac8e314664f97d66b4819c77a88f3c0d9b1ee0ff1b377a151ff3
+SHA256 (50_all_libssp_unconditionally.patch) = 9818288691bdf11c97b529ab5d5054ea7ea140f93a258916eb09ee66b4aba84b
+SHA256 (50_all_posix_memalign.patch) = 53f069c39e440bf09389c9fb78f96b390dd31879b3930acbd3256fce2b9326cb
+SHA256 (c89) = de48736f6e4153f03d0a5d38ceb6c6fdb7f054e8f47ddd6af0a3dbf14f27b931
+SHA256 (c99) = 2513c6d9984dd0a2058557bf00f06d8d5181734e41dcfe07be7ed86f2959622a

@@ -1,0 +1,6 @@
+untrusted comment: verify with core-loong-musl.pub
+RWTPTu/R7gTHy+S4TCvIQt4pFPr6bCCqXHWipsRWt5y4rwnU1KQAoSQt8P2ehNWBPi9+mO6doBXK+iE2C3e2ttwhFcaK4z3VtAY=
+SHA256 (Pkgfile) = e4c30902074e9477c005ac18c9ad3fc7c85321dddb9ca8f3be5f5686b49f7a11
+SHA256 (.footprint) = 53d4c7f191d16554afcbb33287f508b1f85bd5d5d2c49acd7a9bcb07510ff42f
+SHA256 (attr-2.5.2.tar.gz) = 39bf67452fa41d0948c2197601053f48b3d78a029389734332a6309a680c6c87
+SHA256 (0001-attr.c-Include-libgen.h-for-posix-version-of-basenam.patch) = c41c6435e06c69d9c0338cc573d5f69a58878944b05ceaf9d7a8935c06154b87
